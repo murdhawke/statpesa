@@ -1,5 +1,9 @@
 const puppeteer = require('puppeteer');
 const mysql = require('mysql2/promise'); // Assuming you're using mysql2 for database operations
+const fs = require('fs');
+
+const rawData = fs.readFileSync('../config/config.json');
+const config = JSON.parse(rawData);
 
 async function scrapeNSE() {
     let browser;
@@ -33,8 +37,8 @@ async function scrapeNSE() {
         // Store the data in the database
         const connection = await mysql.createConnection({
             host: 'localhost',
-            user: 'amos',
-            password: 'amos1023',
+            user: config.db_username,
+            password: config.db_password,
             database: 'statpesa'
         });
 
@@ -60,4 +64,4 @@ async function scrapeNSE() {
 }
 
 // Call the async function
-scrapeNSE();
+scrapeNSE();    
