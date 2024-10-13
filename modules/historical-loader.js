@@ -1,12 +1,14 @@
 const fs = require('fs');
 const mysql = require('mysql2/promise');
 const csv = require('csv-parser');
+const rawData = fs.readFileSync('../config/config.json');
+const config = JSON.parse(rawData);
 
 // Database configuration
 const dbConfig = {
     host: 'localhost', // Your database host
-    user: 'amos', // Your database username
-    password: 'amos1023', // Your database password
+    user: config.db_username, // Your database username
+    password: config.db_password, // Your database password
     database: 'statpesa' // Your database name
 };
 
