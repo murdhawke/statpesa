@@ -1,2 +1,2 @@
 # statpesa
-M-Pesa Statement Dashboard
+Currency tools and dashboards
