@@ -2,7 +2,7 @@ const fs = require('fs');
 const mysql = require('mysql2/promise');
 const csv = require('csv-parser');
 const rawData = fs.readFileSync('../config/config.json');
-const config = JSON.parse(rawData);
+const config = JSON.parse(rawData); 
 
 // Database configuration
 const dbConfig = {
